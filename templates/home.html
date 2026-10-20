@@ -1,0 +1,22 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Home</title>
+</head>
+<body style="background-color:#0f172a ; color: white;">
+    <div style="display: flex;width: 100%; justify-content: space-between;text-align: center;">
+        <div style="flex: 1;text-align: left; ">Coins:{{coins}} 🪙</div>
+        <div style="flex: 1;text-align: center;">👤{{username}} </div>
+        <div style="flex: 1;text-align: right;">High Score:{{high}} 🏆 </div>
+    </div>
+    <p style="padding-top: 4vw;text-align: center;font-size: 3vw;">🎯 Quiz Master</p>
+    <hr>
+    <p>Select difficulty:</p>
+    <form action="/home" method="post">
+    <div style="display: flex;justify-content: center;width: 100%;gap: 10vw;">
+    <button type="submit" name="difficulty" value="easy" style="background-color: greenyellow;border-radius: 2vw;"><div style="padding: 2vw; border-radius: 2vh;width: 20vw;text-align: center;font-size: 2.5vw;"><b>Easy <br>Question Difficulty:1 <br>Questions:10 <br>🪙/Qn:1</b></div></button>
+    <button type="submit" name="difficulty" value="medium" style="border-radius: 2vw;background-color: orange;"><div style="padding: 2vw; border-radius: 2vh;width: 20vw; text-align: center;font-size: 2.5vw;"><b>Medium<br>Question Difficulty:2 <br>Questions:13<br>🪙/Qn:2</b></div></button>
+    <button type="submit" name="difficulty" value="hard" style="background-color: red; border-radius: 2vw;"><div style="padding: 2vw; border-radius: 2vh;width: 20vw; text-align: center;font-size: 2.5vw;"><b>Hard<br>Question Difficulty:3 <br>Questions:15<br>🪙/Qn:4</b></div></button>
+    </div>
+    </form>
+</body>
