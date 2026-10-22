@@ -1,0 +1,15 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>result</title>
+</head>
+<body>
+    <h1 style="text-align: center;margin-top: 3vw;">Result</h1>
+    {% if result %}
+    <h2 style="text-align: center;margin-top: 2vw;font-size: 3vw;color: greenyellow;">CORRECT!</h2>
+    {% else %}
+    <h2 style="text-align: center;margin-top: 2vw;font-size: 3vw;color: red;">INCORRECT!</h2>
+    {% endif %}
+    <p>Coins Earned:{{coins}} </p>
+    <p style="padding-top: 6vw;"><a href="/quiz"><button>Next Question</button></a></p>
+</body>

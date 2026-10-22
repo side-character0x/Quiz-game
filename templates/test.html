@@ -1,0 +1,24 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body style="background-color: bisque ;">
+    <div style="display: flex;width: 100%;justify-content: center;gap: 20vw;">
+        <div style="flex: 1;text-align: left;">Question: {{qn_no}}/{{max_qn}} </div>
+        <div style="flex: 1;text-align: center;">Current Score:{{score}} </div>
+        <div style="flex: 1;text-align: right;">Coins:{{coins}} 🪙</div>
+    </div>
+    <hr>
+    <div style="display: flex;text-align: left;border: solid white; padding: 2.5vw;margin-top: 5vw;">
+        {{question}}
+    </div>
+    <form action="/answer" method="post">
+        <div style="display: grid;grid-template-columns: 1fr 1fr;gap: 2vw;justify-content: center;margin-top: 7vw;">
+        <button type="submit" name="option" value="{{op1}}" style="padding: 1vw;"  >A.{{op1}} </button>
+        <button type="submit" name="option" value="{{op2}}" style="padding: 1vw;">B.{{op2}} </button>
+        <button type="submit" name="option" value="{{op3}}" style="padding: 1vw;">C.{{op3}} </button>
+        <button type="submit" name="option" value="{{op4}}" style="padding: 1vw;">D.{{op4}} </button>
+    </div></form>
+    <p><a href="/home">[ Quit ] </a></p>
+</body>
