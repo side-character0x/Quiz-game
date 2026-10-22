@@ -24,3 +24,11 @@ class Database:
         self.cur.execute("UPDATE quiz_data SET high_score=? WHERE username=?",(high_score,username))
         self.conn.commit()
         self.conn.close()
+    def get_coins(self,username):
+        coins=self.cur.execute("SELECT coins FROM quiz_data WHERE username=?",(username,)).fetchone()
+        self.conn.close()
+        return coins["coins"]
+    def get_highscore(self,username):
+        high=self.cur.execute("SELECT high_score FROM quiz_data WHERE username=?",(username,)).fetchone()
+        self.conn.close()
+        return high["high_score"] 

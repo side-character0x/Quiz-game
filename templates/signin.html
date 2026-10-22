@@ -1,0 +1,19 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+</head>
+<body style="background-color: #061a14; color: white;">
+    <h1 style="text-align: center; font-size: 3vw;margin-top: 3vw;">Sign Up</h1>
+    <form action="/signin" method="post">
+        <table>
+            <tr>
+                <td>Username:</td><td><input type="text" name="name" placeholder="Enter your username" required></td>
+            </tr>
+            <tr>
+                <td>Pin:</td><td><input type="text" inputmode="numeric" pattern="[0-9]{4}" name="pin" placeholder="4 digit pin" required></td>
+            </tr>
+        </table>
+        <button type="submit">Register</button>
+    </form>
+</body>

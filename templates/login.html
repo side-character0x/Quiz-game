@@ -1,0 +1,22 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body style="background-color:  #0f172a;color: white;">
+    <h1 style="text-align: center; margin-top:3vw;font-size: 3vw;">Let's Log You Outside the Boredom!</h1>
+    <h2 style="text-align: right;font-size: 2vw;">-Launching to quiz🚀</h2>
+    <form action="/login" method="post">
+        <table>
+            <tr>
+                <td>Username:</td><td><input type="text" name="name" required></td>
+            </tr>
+            <tr>
+                <td>Pin:</td><td><input type="text"  name="pin" placeholder="Enter your pin" inputmode="numeric" pattern="[0-9]{4}" required ></td>
+            </tr>
+        </table>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account?<a href="/signin">Register</a>
+    </p>
+</body>
