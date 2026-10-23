@@ -7,6 +7,9 @@
     <h1 style="text-align: center; margin-top:3vw;font-size: 3vw;">Let's Log You Outside the Boredom!</h1>
     <h2 style="text-align: right;font-size: 2vw;">-Launching to quiz🚀</h2>
     <form action="/login" method="post">
+        {% if error %}
+        <p style="color: red;">Either <b>Username</b> or <b>Pin</b> doesn't match!</p>
+        {% endif %}
         <table>
             <tr>
                 <td>Username:</td><td><input type="text" name="name" required></td>

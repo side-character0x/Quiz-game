@@ -15,6 +15,8 @@ class Database:
     def check_user(self,username,pin):
         db_pin=self.cur.execute("SELECT pin FROM auth WHERE username=?",(username,)).fetchone()
         self.conn.close()
+        if db_pin is None:
+            return False
         return db_pin["pin"]==pin
     def add_coins(self,username,coins):
         self.cur.execute("UPDATE quiz_data SET coins=coins+? WHERE username=?",(coins,username))
@@ -31,4 +33,4 @@ class Database:
     def get_highscore(self,username):
         high=self.cur.execute("SELECT high_score FROM quiz_data WHERE username=?",(username,)).fetchone()
         self.conn.close()
-        return high["high_score"] 
+        return high["high_score"]

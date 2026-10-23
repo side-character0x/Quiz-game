@@ -1,0 +1,20 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+</head>
+<body>
+    <h1 style="text-align: center;font-size: 3vw;">Categories</h1>
+    <h2 style="margin-top: 3vw;">Select you required categories:</h2>
+    <form action="/category" method="post">
+    <input type="checkbox" name="category" value="all">Select all <br>
+    <div style="display: grid;grid-template-columns: 1fr 1fr;gap: 2vw;justify-content: center;">
+    {% for category in categories %}
+        <label>
+            <input type="checkbox" name="category" value="{{category}}">{{category}}
+        </label>
+    {% endfor %}
+    </div>
+    <button type="submit">Submit</button>
+    </form>
+</body>
