@@ -2,6 +2,7 @@ from flask import Flask,request,render_template,session,redirect
 from questions import Question
 import random
 from db import Database
+import time
 
 app=Flask(__name__)
 app.secret_key="secret"
@@ -142,5 +143,35 @@ def category():
 @app.route("/error")
 def error():
     return render_template("error.html")
+
+@app.route("/rapid")
+def rapid():
+    session["time"]=time.time()+30
+    session["rapid_data"]=Question().rapid_qn()
+    session["rapid_index"]=0
+    session["rapid_score"]=0
+    return redirect("/startrapid")
+
+@app.route("/startrapid")
+def startrapid():
+    time_left=int(session["time"] - time.time())
+    if time_left<=0:
+        return render_template("rapid_result.html",question=session["rapid_index"],correct=session["rapid_score"],coins=session["rapid_score"]*2)
+    index=session["rapid_index"]
+    question=session["rapid_data"][index][0]
+    options=session["rapid_data"][index][1]
+    return render_template("rapid.html",time=time_left,question=question,options=options,score=session["rapid_score"],question_no=session["rapid_index"]+1)
+
+@app.route("/rapidans",methods=["GET","POST"])
+def rapidans():
+    if request.method=="POST":
+        option=request.form["option"]
+        correct_ans=session["rapid_data"][session["rapid_index"]][2]
+        if option==correct_ans:
+            session["rapid_score"]+=1
+        session["rapid_index"]+=1
+        return redirect("/startrapid")
+
+
 
 app.run( debug=True)

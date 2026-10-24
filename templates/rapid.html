@@ -1,0 +1,20 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapid Round</title>
+</head>
+<body style="background-color: bisque ;">
+    <h1 style="text-align: center; font-size: 2vw;">Timer Left:{{time}} </h1>
+    <div style="display: flex; justify-content: center;">
+    <p style="flex: 1; text-align: left;">Question:{{question_no}}</p>
+    <p style="flex: 1; text-align: right;">Score:{{score}} </p>
+    </div>
+    <p style="border:solid white ; padding: 2.5vw; margin-top: 4vw;">{{question}} </p>
+    <form action="/rapidans" method="post">
+    <div style="display: grid; grid-template-columns: 1fr 1fr;gap: 2vw;">
+        {% for option in options %}
+        <button type="submit" name="option" value="{{option}}">{{option}} </button>
+        {% endfor %}
+    </div>
+    </form>
+</body>

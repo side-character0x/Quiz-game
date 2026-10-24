@@ -92,5 +92,23 @@ class Question:
             return category_names
         else:
             return []
+    def rapid_qn(self):
+        response=requests.get(f"https://opentdb.com/api.php?amount=30&type=multiple")
+        if response.status_code==200:
+            response=response.json()
+            if response.get("response_code") != 0:
+                return False
+            results=response["results"]
+            data=[]
+            for i in results:
+                question=html.unescape(i["question"])
+                correct=i["correct_answer"]
+                choices=i["incorrect_answers"]+[correct]
+                categories=i["category"]
+                data.append([question,choices,correct,categories])
+            return data
+        else:
+            return False
+
 
 
