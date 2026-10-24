@@ -16,10 +16,17 @@
     </div>
     <form action="/answer" method="post">
         <div style="display: grid;grid-template-columns: 1fr 1fr;gap: 2vw;justify-content: center;margin-top: 7vw;">
-        <button type="submit" name="option" value="{{op1}}" style="padding: 1vw;"  >A.{{op1}} </button>
-        <button type="submit" name="option" value="{{op2}}" style="padding: 1vw;">B.{{op2}} </button>
-        <button type="submit" name="option" value="{{op3}}" style="padding: 1vw;">C.{{op3}} </button>
-        <button type="submit" name="option" value="{{op4}}" style="padding: 1vw;">D.{{op4}} </button>
-    </div></form>
-    <p><a href="/home">[ Quit ] </a></p>
+        {% for option in options %}
+        <button type="submit" name="option" value="{{option}}" style="padding: 1vw;"  >{{option}} </button>
+        {% endfor %}
+    </div>
+    {% if lack %}
+    <p style="color: red;"><b>Not enough coins!</b></p>
+    {% endif %}
+    {% if sec_hint %}
+    <p style="color: red;">Can be used only once per question.</p>
+    {% endif %}
+    20🪙<button type="submit" name="hint" value="True">Hint</button>#Removes two options
+    </form>
+    <p><a href="/prehome">[ Quit ] </a></p>
 </body>

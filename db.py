@@ -34,3 +34,7 @@ class Database:
         high=self.cur.execute("SELECT high_score FROM quiz_data WHERE username=?",(username,)).fetchone()
         self.conn.close()
         return high["high_score"]
+    def reduce_coins(self,username,amount):
+        self.cur.execute("UPDATE quiz_data SET coins=coins-? WHERE username=?",(amount,username))
+        self.conn.commit()
+        self.conn.close()

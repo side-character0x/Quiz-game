@@ -7,11 +7,11 @@
     <h1 style="text-align: center;font-size: 3vw;">Categories</h1>
     <h2 style="margin-top: 3vw;">Select you required categories:</h2>
     <form action="/category" method="post">
-    <input type="checkbox" name="category" value="all">Select all <br>
+    <input type="radio" name="category" value="all">Any <br>
     <div style="display: grid;grid-template-columns: 1fr 1fr;gap: 2vw;justify-content: center;">
-    {% for category in categories %}
+    {% for category,id in categories %}
         <label>
-            <input type="checkbox" name="category" value="{{category}}">{{category}}
+            <input type="radio" name="category" value="{{id}}">{{category}}
         </label>
     {% endfor %}
     </div>
