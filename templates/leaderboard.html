@@ -1,0 +1,19 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+</head>
+<body style="background-color: bisque; ">
+    <h1 style="text-align: center; font-size: 3vw;">Current Leaderboard</h1>
+    <table >
+        <tr>
+            <th style="padding-right:  1vw;">Rank</th><th style="padding-right:  3vw;">Username</th><th>High Score</th>
+        </tr>
+        {% for username,high in data %}
+        <tr>
+            <td style="padding-right:  1vw;">{{loop.index}} </td><td  style="padding-right:  3vw;">{{username}} </td><td>{{high}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/home">Back</a>
+</body>

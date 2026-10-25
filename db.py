@@ -38,3 +38,8 @@ class Database:
         self.cur.execute("UPDATE quiz_data SET coins=coins-? WHERE username=?",(amount,username))
         self.conn.commit()
         self.conn.close()
+    def getall_high(self):
+        highs=self.cur.execute('SELECT username,high_score FROM quiz_data').fetchall()
+        self.conn.close()
+        list=[[high["username"],high["high_score"]] for high in highs]
+        return sorted(list,key=lambda x: x[1],reverse=True)

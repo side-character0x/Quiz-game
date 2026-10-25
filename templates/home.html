@@ -9,9 +9,9 @@
         <div style="flex: 1;text-align: center;">👤{{username}} </div>
         <div style="flex: 1;text-align: right;">High Score:{{high}} 🏆 </div>
     </div>
-    <p style="padding-top: 4vw;text-align: center;font-size: 3vw;">🎯 Quiz Master</p>
+    <p style="padding-top: 1vw;text-align: center;font-size: 3vw;">🎯 Quiz Master</p>
     <hr>
-    <p style="text-align: right; font-size: 2vw;">Test your Knowledge. <b><a href="/rapid">Go Rapid</a></b></p>
+    <p style="text-align: right; font-size: 2vw;">Test your Knowledge. <b><a href="/description">Go Rapid</a></b></p>
     {% if category=="not_selected" %}
     <p style="color: red;font-size: 2vw;">Please choose the category</p>
     {% endif %}
@@ -24,4 +24,5 @@
     <button type="submit" name="difficulty" value="hard" style="background-color: red; border-radius: 2vw;"><div style="padding: 2vw; border-radius: 2vh;width: 20vw; text-align: center;font-size: 2.5vw;"><b>Hard<br>Question Difficulty:3 <br>Questions:15<br>🪙/Qn:4</b></div></button>
     </div>
     </form>
+    <a href="/leaderboard" style="font-size: 2vw;">Leaderboard</a>
 </body>

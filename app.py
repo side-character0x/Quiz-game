@@ -150,17 +150,27 @@ def rapid():
     session["rapid_data"]=Question().rapid_qn()
     session["rapid_index"]=0
     session["rapid_score"]=0
+    session["sec_batch"]=False
     return redirect("/startrapid")
 
 @app.route("/startrapid")
 def startrapid():
     time_left=int(session["time"] - time.time())
     if time_left<=0:
-        return render_template("rapid_result.html",question=session["rapid_index"],correct=session["rapid_score"],coins=session["rapid_score"]*2)
+        questions=session["rapid_index"]+(31 if session["sec_batch"] else 0)
+        return render_template("rapid_result.html",questions=questions,correct=session["rapid_score"],coins=questions*2)
+    if session["rapid_index"]==30 and not session["sec_batch"]:
+        session["rapid_data"]=Question().rapid_qn()
+        session["rapid_index"]=0
+        session["sec_batch"]=True
     index=session["rapid_index"]
     question=session["rapid_data"][index][0]
     options=session["rapid_data"][index][1]
-    return render_template("rapid.html",time=time_left,question=question,options=options,score=session["rapid_score"],question_no=session["rapid_index"]+1)
+    if session["sec_batch"]:
+        qn_no=session["rapid_index"]+31
+    else:
+        qn_no=session["rapid_index"]+1
+    return render_template("rapid.html",time=time_left,question=question,options=options,score=session["rapid_score"],question_no=qn_no)
 
 @app.route("/rapidans",methods=["GET","POST"])
 def rapidans():
@@ -172,6 +182,14 @@ def rapidans():
         session["rapid_index"]+=1
         return redirect("/startrapid")
 
+@app.route("/leaderboard")
+def dashboard():
+    sorted_list=Database().getall_high()
+    return render_template("leaderboard.html", data=sorted_list)
+
+@app.route("/description")
+def timer():
+    return render_template("timer_prob.html")
 
 
 app.run( debug=True)
