@@ -179,6 +179,7 @@ def rapidans():
         correct_ans=session["rapid_data"][session["rapid_index"]][2]
         if option==correct_ans:
             session["rapid_score"]+=1
+            Database().add_coins(session["username"],2)
         session["rapid_index"]+=1
         return redirect("/startrapid")
 

@@ -7,11 +7,23 @@
     <h1 style="text-align: center; font-size: 3vw;">Current Leaderboard</h1>
     <table >
         <tr>
-            <th style="padding-right:  1vw;">Rank</th><th style="padding-right:  3vw;">Username</th><th>High Score</th>
+            <th style="padding-right:  1vw;">Rank</th><th style="padding-right:  3vw;">Username</th><th>High Score</th><th style="padding-right:  3vw;">Coins</th>
         </tr>
-        {% for username,high in data %}
+        {% for username,high,coins in data %}
         <tr>
-            <td style="padding-right:  1vw;">{{loop.index}} </td><td  style="padding-right:  3vw;">{{username}} </td><td>{{high}} </td>
+            <td style="padding-right:  1vw;">{{loop.index}} </td><td  style="padding-right:  3vw;">
+                {% if loop.index==1 %}
+                🏆
+                {% elif loop.index==2 %}
+                🥈
+                {% elif loop.index==3 %}
+                🥉
+                {% else %}
+                👤
+                {% endif %}
+                {{username}} </td>
+                <td>{{high}} </td>
+                <td>{{coins}} </td>
         </tr>
         {% endfor %}
     </table>

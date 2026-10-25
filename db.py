@@ -39,7 +39,7 @@ class Database:
         self.conn.commit()
         self.conn.close()
     def getall_high(self):
-        highs=self.cur.execute('SELECT username,high_score FROM quiz_data').fetchall()
+        highs=self.cur.execute('SELECT username,high_score,coins FROM quiz_data').fetchall()
         self.conn.close()
-        list=[[high["username"],high["high_score"]] for high in highs]
+        list=[[high["username"],high["high_score"],high["coins"]] for high in highs]
         return sorted(list,key=lambda x: x[1],reverse=True)

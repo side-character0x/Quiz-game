@@ -15,6 +15,19 @@
         Total Coins Earned: {{coins}}
         <hr>
     </p>
+    <p>
+    {% if accuracy <= 40 %}
+    Are you sure you want to get stuck on "Outside", you really should study books!
+    <br>
+    {% elif accuracy <= 60 %}
+    Not bad, but don't get too much focused on "Outside".
+    <br>
+    {% else %}
+    Nicely done, You should focus on "Outside" too.
+    <br>
+    {% endif %}
+    -Just Kidding😜
+    </p>
     <p style="margin-top: 4vw;">
         <a href="/home"><button style="font-size: 1vw;">Play Again</button></a>
         <br>
