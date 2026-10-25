@@ -3,8 +3,16 @@ from questions import Question
 import random
 from db import Database
 import time
+import sys
+import os
+import webbrowser
+import threading
 
-app=Flask(__name__)
+if getattr(sys, 'frozen', False):
+    template_folder = os.path.join(sys._MEIPASS, 'templates')
+    app = Flask(__name__, template_folder=template_folder)
+else:
+    app = Flask(__name__)
 app.secret_key="secret"
 @app.route("/")
 def base():
@@ -193,4 +201,10 @@ def timer():
     return render_template("timer_prob.html")
 
 
-app.run( debug=True)
+def open_browser():
+    time.sleep(1.5)
+    webbrowser.open("http://127.0.0.1:5000")
+
+if __name__ == "__main__":
+    threading.Thread(target=open_browser, daemon=True).start()
+    app.run()
