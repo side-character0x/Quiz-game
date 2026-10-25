@@ -20,3 +20,16 @@ A quiz game built with Flask and Python. It fetches real-time questions from the
 - **Frontend:** HTML5, CSS3, Jinja2
 - **External API:** [Open Trivia Database](https://opentdb.com/)
 
+## How to Run (For Reviewers)
+
+**Step 1: Download and Extract**
+1. Go to the **Releases** page on the right side of this repository.
+2. Download the `QuizMaster.zip` file.
+3. Extract (unzip) the folder to a location on your computer.
+
+**Step 2: Run the App**
+1. Open the extracted folder.
+2. Double-click **`QuizMaster.exe`**.
+3. A terminal window will open. The app will start the server and automatically open in your web browser at `http://127.0.0.1:5000`.
+
+*(Note: If Windows Defender SmartScreen blocks the app, click "More info" and then "Run anyway". This is normal for unsigned Python executables).*
